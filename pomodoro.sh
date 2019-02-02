@@ -1,8 +1,7 @@
 #!/bin/bash
 
 flag=
-minutes=25
-seconds=$(( 25 * 60 ))
+seconds=$(( minutes * 60 ))
 account=Untitled
 
 while getopts "t:" flag; do
@@ -27,6 +26,10 @@ set_start_date () {
 write () {
     echo i "$start_date" "$account"
     echo o "$( date "+%F %T" )"
+}
+
+set_remaining_seconds () {
+    
 }
 
 while read -r -t "$minutes" new_account; do
