@@ -49,3 +49,8 @@ o 2019-02-01 22:22:53
 i 2019-02-01 22:22:53 Tasks:Email
 o 2019-02-01 22:25:00
 ```
+
+There is a feature that sends a notification `-n` number of seconds before the
+end of the pomodoro. You specify the command to complete the countdown with.
+
+**HERE**

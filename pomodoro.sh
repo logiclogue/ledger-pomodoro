@@ -3,9 +3,10 @@
 flag=
 minutes=25
 
-while getopts "t:" flag; do
+while getopts "t:n:" flag; do
     case "${flag}" in
         t) minutes=$OPTARG;;
+        n) notify=$OPTARG;;
         *) exit 1;;
     esac
 done
