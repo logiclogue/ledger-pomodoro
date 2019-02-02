@@ -1,8 +1,7 @@
 #!/bin/bash
 
 flag=
-seconds=$(( minutes * 60 ))
-account=Untitled
+minutes=25
 
 while getopts "t:" flag; do
     case "${flag}" in
@@ -10,6 +9,10 @@ while getopts "t:" flag; do
         *) exit 1;;
     esac
 done
+
+total_seconds=$(( minutes * 60 ))
+seconds=$total_seconds
+account=Untitled
 
 shift $(("${OPTIND}" - 1))
 
@@ -29,16 +32,20 @@ write () {
 }
 
 set_remaining_seconds () {
-    
+    seconds=$(( total_seconds - SECONDS ))
 }
 
-while read -r -t "$minutes" new_account; do
-    write
+trap write EXIT
 
-    account=$new_account
+while read -r -t "$seconds" new_account; do
+    if [[ -n $new_account ]]; then
+        write
 
-    set_start_date
-    set_remaining_seconds
+        account=$new_account
+
+        set_start_date
+        set_remaining_seconds
+    fi
 done
 
 write
