@@ -2,17 +2,19 @@
 
 flag=
 minutes=25
+notify_seconds_before_end=
 
 while getopts "t:n:" flag; do
     case "${flag}" in
         t) minutes=$OPTARG;;
-        n) notify=$OPTARG;;
+        n) notify_seconds_before_end=$OPTARG;;
         *) exit 1;;
     esac
 done
 
 total_seconds=$(( minutes * 60 ))
 seconds=$total_seconds
+seconds_before_notification=$(( total_seconds - notify_seconds_before_end ))
 account=Untitled
 
 shift $(("${OPTIND}" - 1))
@@ -48,5 +50,3 @@ while read -r -t "$seconds" new_account; do
         set_remaining_seconds
     fi
 done
-
-write

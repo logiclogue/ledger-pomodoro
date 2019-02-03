@@ -51,6 +51,11 @@ o 2019-02-01 22:25:00
 ```
 
 There is a feature that sends a notification `-n` number of seconds before the
-end of the pomodoro. You specify the command to complete the countdown with.
+end of the pomodoro. It uses `notify-send` to send a notification to your
+desktop.
 
-**HERE**
+```
+$ ./pomodoro.sh -n 30 Projects:LedgerPomodoro
+```
+
+In this example, a notification will pop-up saying "30 seconds left".
