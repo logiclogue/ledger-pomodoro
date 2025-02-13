@@ -1,0 +1,4 @@
+default_minutes=25
+lock_command=i3lock -c "#49483e"
+output_file=/tmp/pomodoro-log.txt
+notify_seconds_before_end=60
